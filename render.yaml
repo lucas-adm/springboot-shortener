@@ -3,11 +3,11 @@ databases:
     plan: free
 
 services:
-  - name: springboot-url
+  - name: confiapo
     type: web
     plan: free
     runtime: docker
-    envVars: #Se atente às variáveis setadas no perfil de produção
+    envVars:
       - key: PGHOST
         fromDatabase:
           name: postgres
