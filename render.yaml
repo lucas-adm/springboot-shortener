@@ -1,0 +1,30 @@
+databases:
+  - name: postgres
+    plan: free
+
+services:
+  - name: springboot-url
+    type: web
+    plan: free
+    runtime: docker
+    envVars: #Se atente às variáveis setadas no perfil de produção
+      - key: PGHOST
+        fromDatabase:
+          name: postgres
+          property: host
+      - key: PGPORT
+        fromDatabase:
+          name: postgres
+          property: port
+      - key: PGDATABASE
+        fromDatabase:
+          name: postgres
+          property: database
+      - key: PGUSER
+        fromDatabase:
+          name: postgres
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: postgres
+          property: password
