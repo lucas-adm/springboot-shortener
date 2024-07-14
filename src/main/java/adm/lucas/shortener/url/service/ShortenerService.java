@@ -14,6 +14,10 @@ public class ShortenerService {
     private final ShortenerRepository repository;
 
     public String shortenUrl(String Url) {
+        Shortener entityExists = repository.findByFullUrl(Url);
+        if (entityExists != null) {
+            return entityExists.getId();
+        }
         String id;
         do {
             id = RandomStringUtils.randomAlphabetic(5, 6);
