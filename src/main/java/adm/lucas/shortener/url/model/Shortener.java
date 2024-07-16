@@ -10,15 +10,15 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 @Entity
-@Table(name = "shorteners")
+@Table(name = "shortened")
 @Data
 @NoArgsConstructor
 public class Shortener {
 
     @Id
-    String id;
-    LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
-    String fullUrl;
+    private String id;
+    private LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
+    private String fullUrl;
 
     public Shortener(String id, String fullUrl) {
         this.id = id;
