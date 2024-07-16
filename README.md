@@ -18,12 +18,12 @@
 
 ### Como cortar sua URL ⁉
 
-#### ▶ Realize o corte *<a href="https://confia-po.onrender.com">aqui</a>*
+#### ▶ Realize o corte *<a href="https://confiapo.onrender.com">aqui</a>*
 
 ###### Banco de Dados e Server Deploy por <a href="https://render.com">*Render*</a>
 
 <div align="center">
 
-![confiapo](https://i.imgur.com/oNTYHaX.png)
+![confiapo](https://github.com/user-attachments/assets/954271fd-72e3-4895-8014-56a74874c166)
 
 </div>
