@@ -1,0 +1,1 @@
+ALTER TABLE shortened ALTER COLUMN full_url TYPE VARCHAR(333);
