@@ -20,7 +20,7 @@ public class ShortenerService {
         }
         String id;
         do {
-            id = RandomStringUtils.randomAlphabetic(5, 6);
+            id = RandomStringUtils.randomAlphabetic(5, 10);
         } while (repository.existsById(id));
         return repository.save(new Shortener(id, Url)).getId();
     }

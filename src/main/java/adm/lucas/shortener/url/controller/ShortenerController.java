@@ -9,7 +9,6 @@ import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -40,11 +39,11 @@ public class ShortenerController {
 
     @Operation(summary = "Insert the URL", description = "Shorten your URL")
     @Transactional
-    @PostMapping(value = "/shorten")
-    public ResponseEntity<ShortenerResponseDTO> shortenUrl(@RequestBody @Valid ShortenerDTO dto, HttpServletRequest request) {
+    @PostMapping("/shorten")
+    public ResponseEntity<ShortenerResponseDTO> shortenUrl(@RequestBody @Valid ShortenerDTO dto) {
         counterService.setLinkAnalytics(1L);
         String shortenedUrl = service.shortenUrl(dto.url());
-        String response = request.getRequestURL().toString().replace("shorten", shortenedUrl);
+        String response = "https://xisyz.xyz/" + shortenedUrl;
         return ResponseEntity.status(HttpStatus.CREATED).body(new ShortenerResponseDTO(response));
     }
 
@@ -64,12 +63,12 @@ public class ShortenerController {
         }
     }
 
-    @Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(cron = "0 0 0 * * ?", zone = "America/Sao_Paulo")
     public void cleanDailyHistory() {
         counterService.resetDailylyAnalytics(1L);
     }
 
-    @Scheduled(cron = "0 0 0 1 * ?")
+    @Scheduled(cron = "0 0 0 1 * ?", zone = "America/Sao_Paulo")
     public void cleanMonthlyHistory() {
         counterService.resetMonthlyAnalytics(1L);
     }
