@@ -59,7 +59,7 @@ public class ShortenerController {
             String fullUrl = service.getData(id).getFullUrl();
             return new RedirectView(fullUrl);
         } catch (EntityNotFoundException exception) {
-            return new RedirectView("https://www.youtube.com/watch?v=GDvqs_oFD6w&pp=ygUaYSBiYXJyZWlyYSB2YWkgdmlyYXIgYmFpbGU%3D");
+            return new RedirectView("https://www.youtube.com/watch?v=CSlizwAgDak");
         }
     }
 
